@@ -1,0 +1,44 @@
+
+
+  <div style="background-color: lightgray; padding: 15px;">
+    Question NO.{{data.PaperQuesionNo}}
+</div> 
+
+<div>
+   <p *ngFor="let resto of data.Question.QuestionText">
+    {{resto}}
+   </p>
+</div> 
+
+<div *ngIf="IsMultiCorrect()">
+    <p *ngFor="let resto  of data.Question.AnswerOption, let i =index">
+    <input type="checkbox" name="chkage" id={{i}}> {{resto}}
+       </p>
+</div>
+
+<div *ngIf="!IsMultiCorrect()">
+    <p  *ngFor="let resto of data.Question.AnswerOption; let i =index ">
+        <input type="radio" id={{i}} name="age" value="30">
+        <label for="age1">{{resto}}</label><br> 
+    
+       </p>
+</div>
+
+
+  <button type="button" class="btn btn-success" (click)="toggleDisplay()"> Check your Answer </button> 
+    
+    <div style="margin-top: 30px;" *ngIf="!isDisplay" >
+        <p *ngIf="isAnswerCorrect" style="color: green;">Your answer is correct</p>
+        <p *ngIf="!isAnswerCorrect" style="color: red;">Your answer is NOT correct</p>
+    <p *ngFor="let resto of data.Question.CorrectAnswer">
+        {{data.Question.AnswerOption[resto]}}
+          
+    </p>
+    <b>Details :</b> 
+    <p *ngFor="let Detail of data.Question.Details">
+         {{Detail}}
+          
+    </p> 
+  </div>  
+
+
