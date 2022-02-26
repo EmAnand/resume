@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormArray, FormGroup, FormBuilder, FormControl} from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { iLanguage } from '../models/resume';
 import { ResumeService } from '../resume.service';
@@ -38,17 +38,34 @@ export class ILanguageComponent implements OnInit {
   IsMotherTongue:false,
 
 }
-  constructor(private Lservice:ResumeService) {
-    // console.log(this.item[0].LanguageName)
-    // console.log(this.item[0].Reading)
-   }
+languageForm=  new FormGroup({
+  IsMotherTongue : new FormControl(),
+  LanguageName : new FormControl(),
+  Listening : new FormControl(),
+  Reading: new FormControl(),
+  Speaking: new FormControl(),
+  Writing: new FormControl()
 
-  ngOnInit(): void {
+})
+  constructor(private _formBuilder: FormBuilder) {
+    
+   
   }
 
-  formsubmit(f:NgForm){
+  ngOnInit(): void {
+  
+    const Skills= new FormArray([
+      new FormControl(null)
+    ]);
+   
+    
 
-    this.abc=f.value;
+  
+  }
+
+  formsubmit(){
+
+    // this.abc=f.value;
     this.edit=false
 
     console.log("abc - ",this.abc)
@@ -56,24 +73,22 @@ export class ILanguageComponent implements OnInit {
   // this.abc={
   //   LanguageName:f.value.LanguageName,
   // }
-  this.abc={
-    LanguageName:f.value.LanguageName,
-    Writing:f.value.Writing,
-    Reading:f.value.Reading,
-    Speaking:f.value.Speaking,
-    Listening:f.value.Listening,
-    IsMotherTongue:f.value.IsMotherTongue
-  }
+  // this.abc={
+  //   LanguageName:f.value.LanguageName,
+  //   Writing:f.value.Writing,
+  //   Reading:f.value.Reading,
+  //   Speaking:f.value.Speaking,
+  //   Listening:f.value.Listening,
+  //   IsMotherTongue:f.value.IsMotherTongue
+  // }
   
   }
   editform(){
     this.edit=true;
     
   }
-  add(){
-  this.openform=true; 
-  return this.openform
- 
-  }
 
+  onSubmit(){
+    console.log(this.languageForm)
+  }
 }

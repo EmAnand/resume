@@ -11,23 +11,7 @@
                       </span>
                     </p>
                     
-                        <!-- <div class="rows" >
-                        <div class="col-sm-6">
-                          <label>LanguageName</label>
-                          </div>
-                          <div class="col-sm-6">  
-                        {{item[0].LanguageName}}
-                      </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-sm-6">
-                        <label>Writing</label>
-                      </div>
-                      <div class="col-sm-6">
-                        {{item[0].Writing}}
-                      </div>
-                      </div> -->
+                        
                       <div  class="row">
                         <div class="col-sm-3">
                           <label>IsMotherTongue</label>
@@ -35,8 +19,6 @@
                         <div class="col-sm-3">
                           {{item[0].IsMotherTongue}}
                           </div>
-                        <!-- </div> -->
-                      <!-- <div  class="row"> -->
                         <div class="col-sm-3">
                           <label>LanguageName</label>
                         </div>
@@ -133,12 +115,100 @@
 
                 
                 <ng-template #editTemp >
-                  <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
-                    <!-- <div class="row" class="form-group">
-                      <div class="col-sm-6"> 
-                          
-                      <span style="font-size: 11px;">Imapge size should be max 150x150</span>
-                      </div></div> -->
+                 
+
+                  <form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
+ 
+                    <div class="row">
+                      <div class="col-sm-3">
+                      <label>IsMotherTongue</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" [(ngModel)]="item[0].IsMotherTongue"  class="form-group" formControlName="IsMotherTongue">
+                    </div>
+                  
+                      <div class="col-sm-3">
+                      <label>LanguageName</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].LanguageName" name="LanguageName" formControlName="LanguageName">
+                    <option *ngFor="let item of lang">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                      <label>Listening</label>
+                    </div>
+                    <div class="col-sm-3">
+                    <select [(ngModel)]="item[0].Listening" name="Listening" formControlName="Listening">
+                      <option *ngFor="let item of list">{{item}}</option>
+
+                    </select>
+                    </div>
+                      <div class="col-sm-3">
+                      <label>Reading</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Reading" name="Reading" formControlName="Reading">
+                   <option *ngFor="let item of Read">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                      <label>Speaking</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Speaking" name="Speaking" formControlName="Speaking">
+                    <option *ngFor="let item of sprek">{{item}}</option>
+                      </select>
+                      </div>
+                  
+                      <div class="col-sm-3">
+                      <label>Writing</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Writing" name={{Write}}  formControlName="Writing">
+                        <!-- <option selected>---select---</option> -->
+                        <option *ngFor="let item of Write">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <!-- <p>
+                      <label for="country">country </label>
+                      <select id="country" name="country"  formControlName="country">
+                        <option [ngValue]="c.id" *ngFor="let c of countryList">
+                          {{c.name}}
+                        </option>
+                      </select>
+                    </p> -->
+                   <div>
+                     <div class="form-group" formArrayName="Skills">
+                       <label>skills</label>
+                       <ng-container *ngFor="let skill in  languageForm.get('Skills')">
+                       <input type="text" class="form-control" autocomplete="off" >
+                      </ng-container>
+                     <button type="button" class="btn btn-primary" style="cursor: pointer;">+Add</button>
+                   </div>
+                  </div>
+                    <p>
+                      <button type="submit">Submit</button>
+                    </p>
+                   
+                  </form>
+
+                  <!-- <div formArrayName="skills">
+                    <div *ngFor="let skill of skills().controls; let i=index">
+                      <div [formGroupName]="i">
+                        {{i}}
+                        skill name :
+                        <input type="text" formControlName="skill">
+                        exp:
+                        <input type="text" formControlName="exp">
+                 
+                        <button (click)="removeSkill(i)">Remove</button>
+                      </div>
+                    </div>
+                  </div> -->
+                  <!-- <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
                 
                     <div class="row" class="form-group">
                       <div class="col-sm-6"> 
@@ -150,8 +220,7 @@
                       <div class="row" class="form-group">
                         <div class="col-sm-6">
                           <label>LanguageName</label> 
-                        <!-- <input type="text" [(ngModel)]="item[0].LanguageName" required name="LanguageName" #LanguageName="ngModel" class="form-control" placeholder="LanguageName"> -->
-                       <select [(ngModel)]="item[0].LanguageName" required name="LanguageName" #LanguageName="ngModel" class="form-control" placeholder="LanguageName">
+                        <select [(ngModel)]="item[0].LanguageName" required name="LanguageName" #LanguageName="ngModel" class="form-control" placeholder="LanguageName">
                         <option *ngFor="let item of lang">{{item}}</option>
                          
                        </select>
@@ -258,9 +327,8 @@
           
                     <p class="form-submit">
                       <input type="submit" >
-                      <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->
-                    </p>
-                   </form>
+                      </p>
+                   </form> -->
                 </ng-template>
                 </div>
                
