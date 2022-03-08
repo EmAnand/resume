@@ -1,0 +1,41 @@
+<div style="background-color: whitesmoke;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="text-align: left;margin: 20px;background-color: white;border-radius: 5px;">
+                <ul id="menu">
+                    <li routerLink="/dashboard">My dashboard</li>
+                    <li style="color: #01bafd;" routerLink="/new-resume/personal-info">Create New Resume</li>
+                    <li routerLink="/new-cover-letter">Create New Cover Letter</li>
+                    <li routerLink="/my-resumes">My Resume</li>
+                    <li routerLink="/my-cover-letters">My Cover Letter</li>
+                    <li routerLink="/my-blogs">My Blogs</li>
+                    <li routerLink="/my-certificates">My Certificates</li>
+                    <li routerLink="/my-tests">My Tests</li>
+                </ul>
+            </div>
+            <div class="col-md-8" style="text-align: left;padding: 20px;margin: 20px;background-color: white;border-radius: 5px;">
+              
+                <div style="display: flex;justify-content: space-around;">
+                    <div>
+                        <div  style="background-color: green;border-radius: 25%;width: 10px;height: 10px;margin-left: auto;margin-right: auto;"></div> 
+                        Personal Info
+                    </div>
+                    <div>
+                        <div style="background-color: green;border-radius: 25%;width: 10px;height: 10px;margin-left: auto;margin-right: auto;"></div> 
+                        Qualification
+                    </div>
+                    <div>
+                    <div style="background-color: green;border-radius: 25%;width: 10px;height: 10px;margin-left: auto;margin-right: auto;"></div> 
+                    Experience
+                    </div>
+                    <div>
+                        <div style="background-color: green;border-radius: 25%;width: 10px;height: 10px;margin-left: auto;margin-right: auto;"></div> 
+                        Language
+                    </div>
+                </div>
+                <hr/>
+                    <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
