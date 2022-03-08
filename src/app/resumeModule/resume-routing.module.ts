@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { FullResumeComponent } from './full-resume/full-resume.component';
 import { LanguageComponent } from './language/language.component';
