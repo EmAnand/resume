@@ -1,0 +1,6 @@
+.input.ng-invalid{
+    border: 1px solid red;
+}
+.row{
+    padding: 8px;
+}
