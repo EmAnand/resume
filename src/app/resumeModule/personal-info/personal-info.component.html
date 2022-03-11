@@ -1,4 +1,7 @@
 <div class="container">
+
+
+  
   <div class="row">
     <div class="Form group">
 
@@ -16,9 +19,11 @@
             </p>
           </div>
         </div>
+        
         <div class="row border1">
           <div class="col-sm-2">
             DisplayName:
+            
           </div>
           <div class="col-sm-2">
             {{d.DisplayName}}
@@ -85,6 +90,9 @@
             PhoneNo:
           </div>
           <div class="col-sm-2">
+            {{d.code}}
+          <!-- </div>
+          <div class="col-sm-2"> -->
             {{d.PhoneNO}}
           </div>
 
@@ -92,6 +100,9 @@
             AlternatePhoneNO:
           </div>
           <div class="col-sm-2">
+            {{d.country}}
+          <!-- </div>
+          <div class="col-sm-2"> -->
             {{d.AlternatePhoneNo}}
           </div>
         </div>
@@ -128,115 +139,128 @@
       </div>
     </div>
   </div>
+
+
+  
   <ng-template #editTemp>
     <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
 
-      <div class="row" class="form-group">
-        <div class="col-sm-8 col-lg-4">
+      <div class="row form-group">
+        <div class="col-sm-12 ">
           <label>Gender</label><br>
-          <input type="radio" name="Gender" id="male" title="asdf" value="30">
+          <input type="radio"  name="Gender" id="male" title="asdf" value="30">
           <label for="male">Male</label><br>
           <input type="radio" name="Gender" id="female" title="asdf" value="30">
           <label for="female">Female</label><br>
         </div>
       </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
+      <div  class="row form-group">
+        <div class="col-sm-4"> 
           <label>DisplayName*</label>
           <input type="text" [(ngModel)]="d.DisplayName" required name="DisplayName" #DisplayName="ngModel"
             class="form-control" placeholder="DisplayName">
-          <span *ngIf="DisplayName.invalid && DisplayName.touched">it's required</span>
         </div>
+      <div class="col-sm-4 form-group ">
+        <label>DOB</label>
+        <input type="date" [(ngModel)]="d.DOB" required name="DOB" #DOB="ngModel" class="form-control"
+          placeholder="DOB"> 
+        
+      </div>
       </div>
 
-      <div class="row" class="form-group editModeSmallPage">
-        <div class="col-sm-4">
-          <label>DOB</label>
-          <input type="date" [(ngModel)]="d.DOB" required name="DOB" #DOB="ngModel" class="form-control"
-            placeholder="DOB">
-          <span *ngIf="DOB.invalid && DOB.touched">it's required</span>
-        </div>
-      </div>
-
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
+      <div  class="row form-group">
+        <div class="col-sm-4"> 
           <label>Email</label>
-          <input type="email" [(ngModel)]="d.Email" required name="Email" #Email="ngModel" class="form-control"
+          <input type="email" [(ngModel)]="d.Email" required emailValidator name="Email" #Email="ngModel" class="form-control"
             placeholder="Email">
-          <span *ngIf="Email.invalid && Email.touched">it's required</span>
         </div>
-      </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
-          <label>AlternateEmail</label>
+      <div class="col-sm-4 form-group">
+        <label>AlternateEmail</label>
           <input type="email" [(ngModel)]="d.AlternateEmail" required name="AlternateEmail" #AlternateEmail="ngModel"
-            class="form-control" placeholder="AlternateEmail">
-          <span *ngIf="AlternateEmail.invalid && AlternateEmail.touched">It's required</span>
-        </div>
+            class="form-control" placeholder="AlternateEmail"> 
+        
       </div>
-
-
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
+      </div>
+      <div  class="row form-group">
+        <div class="col-sm-4"> 
           <label>Zipcode*</label>
-          <input type="number" [(ngModel)]="d.ZipCode" required name="ZipCode" #ZipCode="ngModel" class="form-control"
+          <input type="text" [(ngModel)]="d.ZipCode" required name="ZipCode" #ZipCode="ngModel" class="form-control"
             placeholder="ZipCode">
-          <span *ngIf="ZipCode.invalid && ZipCode.touched">it's required</span>
         </div>
-      </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
-          <label>City*</label>
+      <div class="col-sm-4 form-group">
+        <label>City*</label>
           <input type="text" [(ngModel)]="d.City" required name="City" #City="ngModel" class="form-control"
-            placeholder="City">
-          <span *ngIf="City.invalid && City.touched ">it;s required</span>
-        </div>
+            placeholder="City"> 
+        
       </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
+      </div>
+      <div  class="row form-group">
+        <div class="col-sm-4"> 
           <label>Nationality*</label>
           <select [(ngModel)]="d.Nationality" required name="Nationality" #Nationality="ngModel" class="form-control"
             placeholder="Nationality">
+            <option value="select">--Select--</option>
             <option *ngFor="let item of countryList">{{item}}</option>
-            <span *ngIf="Nationality.invalid && Nationality.touched ">it's required</span>
+         
           </select>
         </div>
+      <div class="col-sm-2 form-group">
+        <label>Tel-Code:</label>
+        <select [(ngModel)]="d.code" required conactValidator name="code" #code="ngModel" class="form-control"
+        placeholder="code">
+        <option *ngFor="let item of c">{{item}}</option>
+        <!-- <option value="+92">+92</option>
+        <option value="+1">+1</option> -->
+        </select>
       </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
-          <label>PhoneNo</label>
-          <input type="number" [(ngModel)]="d.PhoneNO" required name="PhoneNO" #PhoneNO="ngModel" class="form-control"
-            placeholder="PhoneNO">
-          <span *ngIf="PhoneNO.invalid && PhoneNO.touched">it's required</span>
-        </div>
+      <div class="col-sm-2 form-group">
+        <label>PhoneNo</label>
+        <input type="number" [(ngModel)]="d.PhoneNO" required contactValidator name="PhoneNO" #PhoneNO="ngModel" class="form-control"
+        placeholder="PhoneNO">
+        
       </div>
-      <div class="row" class="form-group">
-        <div class="col-sm-4">
+      </div>
+      <div  class="row form-group">
+        <div class="col-sm-2"> 
+          <label>Tel-Code:</label>
+          <select [(ngModel)]="d.country"  name="country"
+            #country="ngModel" class="form-control" placeholder="optional">
+            <option *ngFor="let item of c">{{item}}</option>
+        </select>
+        
+          </div>
+        <div class="col-sm-2"> 
           <label>AlternatePhoneNO</label>
-          <input type="number" [(ngModel)]="d.AlternatePhoneNo" required name="AlternatePhoneNo"
-            #AlternatePhoneNo="ngModel" class="form-control" placeholder="AlternatePhoneNo">
-          <span *ngIf="AlternatePhoneNo.invalid && AlternatePhoneNo.touched">it's required</span>
+          <input type="number" [(ngModel)]="d.AlternatePhoneNo"  name="AlternatePhoneNo"
+            #AlternatePhoneNo="ngModel" class="form-control" placeholder="optional">
+        </div>
+        </div> 
+     
+      
+      <div class="row" class="form-group">
+        <div class="col-sm-4">
+          
+         
         </div>
       </div>
 
-      <div class="row" class="form-group">
-        <div class="col-sm-12">
+      <div class="row form-group">
+        <div class="col-sm-8">
           <label>AboutMe</label>
           <textarea rows="2" cols="4" [(ngModel)]="d.AboutMe" required name="AboutMe" #AboutMe="ngModel"
             class="form-control" placeholder="AboutMe">
                               </textarea>
-          <span *ngIf="AboutMe.invalid && AboutMe.touched">it's required</span>
         </div>
+
       </div>
-      <div class="d-flex flex-row align-items-center mb-4" class="form-group">
-        <div class="form-outline flex-fill mb-0">
+      <div class="row form-group">
+        <div class="col-sm-8">
           <label>Summarytext</label>
           <textarea rows="2" cols="4" [(ngModel)]="d.SummaryText" required name="SummaryText" #SummaryText="ngModel"
             class="form-control" placeholder="SummaryText">
                                 </textarea>
-          <span *ngIf="SummaryText.invalid && SummaryText.touched">it's required</span>
         </div>
-      </div>
+      </div>  
       <p class="form-submit">
         <input type="submit">
         <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->

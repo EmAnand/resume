@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { data } from 'src/app/shared-module/dimensionData';
 import { ResumeService } from '../resume.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { ResumeService } from '../resume.service';
 })
 export class ExperienceComponent implements OnInit {
 
- experi:any| null=null;
+ experi:any| null;
  edit:boolean=false;
- countryList:any | null=null;
+ countryList:any | null=data.DimensionData.Country.Data
   
-  constructor(private resume:ResumeService) { }
+  constructor(private resumeService:ResumeService) { 
+    this.experi=resumeService.GetExperience("userid", "resumeid")
+  }
 
   ngOnInit(): void {
 
@@ -23,9 +26,11 @@ export class ExperienceComponent implements OnInit {
 
   
   formsubmit(f:NgForm){
-
-    console.log(f.value)
     this.edit=false;
+    console.log(f.value)
+    if(f.valid){
+      this.resumeService.setExperience(f, 'userId');
+    }
   }
   editform(){
 this.edit=true;    

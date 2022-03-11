@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { data } from 'src/app/shared-module/dimensionData';
 import { iLanguage } from '../models/resume';
+import { ResumeService } from '../resume.service';
 
 @Component({
   selector: 'app-language',
@@ -21,7 +22,7 @@ export class LanguageComponent implements OnInit {
   Country:any
   DimensionData:any
 //  count:any |null= DimensionData.
-  item:any | null= data.DimensionData.Language
+  item:any | null;
   lang:any | null = data.DimensionData.Language.Data
   list:any | null = data.DimensionData.Listening.Data
   Read:any | null = data.DimensionData.Reading.Data
@@ -30,10 +31,10 @@ export class LanguageComponent implements OnInit {
   abc:iLanguage={
 
   LanguageName:null,
-  Listening: 0,
-  Reading:0,
-  Speaking:0,
-  Writing:0,
+  Listening: 1,
+  Reading:2,
+  Speaking:2,
+  Writing:1,
   IsMotherTongue:false,
 
 }
@@ -46,8 +47,9 @@ languageForm=  new FormGroup({
   Writing: new FormControl()
 
 })
-  constructor(private _formBuilder: FormBuilder) {
-    
+  constructor(private _formBuilder: FormBuilder, 
+    private resumeService:ResumeService) {
+    this.item=resumeService.Getlanguage("userid", "resumeid")
    
   }
 
@@ -64,22 +66,11 @@ languageForm=  new FormGroup({
 
   formsubmit(){
 
-    // this.abc=f.value;
     this.edit=false
-
     console.log("abc - ",this.abc)
-    //console.log(f.value)
-  // this.abc={
-  //   LanguageName:f.value.LanguageName,
-  // }
-  // this.abc={
-  //   LanguageName:f.value.LanguageName,
-  //   Writing:f.value.Writing,
-  //   Reading:f.value.Reading,
-  //   Speaking:f.value.Speaking,
-  //   Listening:f.value.Listening,
-  //   IsMotherTongue:f.value.IsMotherTongue
-  // }
+  if(this.abc){
+    this.resumeService.SetLanguage(this.abc, 'userId');
+  }  
   
   }
   editform(){

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { data } from 'src/app/shared-module/dimensionData';
-import { iQualification } from '../models/resume';
+//import { iQualification } from '../models/resume';
+import { ResumeService } from '../resume.service';
 
 @Component({
   selector: 'app-qualification',
@@ -9,34 +10,25 @@ import { iQualification } from '../models/resume';
   styleUrls: ['./qualification.component.css']
 })
 export class QualificationComponent implements OnInit {
-  ab:any | null=null;
+  ab:any | null;
   edit:boolean=false;
   countryList:any | null= data.DimensionData.Country.Data
-    qualification:iQualification={
-    Study:null,
-    StudyTitle:null,
-    InstitutionUrl:null,
-    InstitutionName:null,
-    Country:null ,
-    City:null,
-    Province:null,
-    ZipCode:null,
-    StudyFrom: new Date(2022,2,10) ,
-    StudyTo:new Date(10,6,2016) ,
-    StillOn:false ,
-    HideFromCV:false ,
-    Stream:null ,
-  
-  }
-    constructor() { }
+   
+    constructor(private resumeService:ResumeService) {
+      this.ab=resumeService.GetQualification("userId", "resumeid")
+     }
   
     ngOnInit(): void {
+   
     }
   
     formsubmit(f:NgForm){
-  
+      this.edit=false;
       console.log(f.value)
-      this.edit=false
+      if(f.valid){
+       this.resumeService.setQualification(f , 'userId'); 
+      }
+
     }
     editform(){
       this.edit=true;

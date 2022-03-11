@@ -8,6 +8,10 @@ import { FullResumeComponent } from './full-resume/full-resume.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
 import { MyTestsComponent } from './my-tests/my-tests.component';
+import { checkEmailValidator } from './validators/EmailValidator.Directive';
+import { CheckContactValidator } from './validators/ContactnoValidator.Directive ';
+
+
 
 
 
@@ -19,7 +23,12 @@ import { MyTestsComponent } from './my-tests/my-tests.component';
     FullResumeComponent,
     MyBlogsComponent,
     MyCertificatesComponent,
-    MyTestsComponent
+    MyTestsComponent,
+    checkEmailValidator,
+    CheckContactValidator,
+    
+
+    
   ],
   imports: [
     CommonModule,

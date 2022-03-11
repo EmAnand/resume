@@ -121,67 +121,51 @@
 
     <form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
 
-      <div class="row">
-        <div class="col-sm-3">
-        <label>IsMotherTongue</label>
-      </div>
-      <div class="col-sm-3">
-        <input type="text" [(ngModel)]="item[0].IsMotherTongue"  class="form-group" formControlName="IsMotherTongue">
-      </div>
-    
-        <div class="col-sm-3">
-        <label>LanguageName</label>
-      </div>
-      <div class="col-sm-3">
-        <select [(ngModel)]="item[0].LanguageName" name="LanguageName" formControlName="LanguageName">
-      <option *ngFor="let item of lang">{{item}}</option>
-        </select>
-        </div></div>
-      <div class="row">
-        <div class="col-sm-3">
-        <label>Listening</label>
-      </div>
-      <div class="col-sm-3">
-      <select [(ngModel)]="item[0].Listening" name="Listening" formControlName="Listening">
-        <option *ngFor="let item of list">{{item}}</option>
-
-      </select>
-      </div>
-        <div class="col-sm-3">
-        <label>Reading</label>
-      </div>
-      <div class="col-sm-3">
-        <select [(ngModel)]="item[0].Reading" name="Reading" formControlName="Reading">
-     <option *ngFor="let item of Read">{{item}}</option>
-        </select>
-        </div></div>
-      <div class="row">
-        <div class="col-sm-3">
-        <label>Speaking</label>
-      </div>
-      <div class="col-sm-3">
-        <select [(ngModel)]="item[0].Speaking" name="Speaking" formControlName="Speaking">
-      <option *ngFor="let item of sprek">{{item}}</option>
-        </select>
+      <div class="row ">
+        <div class="col-sm-4">
+          <label>IsMotherTongue</label>
+          <input type="text" [(ngModel)]="item[0].IsMotherTongue"  class="form-group" formControlName="IsMotherTongue">
         </div>
-    
-        <div class="col-sm-3">
-        <label>Writing</label>
-      </div>
-      <div class="col-sm-3">
-        <select [(ngModel)]="item[0].Writing" name={{Write}}  formControlName="Writing">
-          <!-- <option selected>---select---</option> -->
-          <option *ngFor="let item of Write">{{item}}</option>
-        </select>
-        </div></div>
-      <!-- <p>
-        <label for="country">country </label>
-        <select id="country" name="country"  formControlName="country">
-          <option [ngValue]="c.id" *ngFor="let c of countryList">
-            {{c.name}}
-          </option>
-        </select>
-      </p> -->
+        <div class="col-sm-4">
+          <label>LanguageName</label>
+          <select [(ngModel)]="item[0].LanguageName" name="LanguageName" formControlName="LanguageName">
+            <option *ngFor="let item of lang">{{item}}</option>
+              </select>        
+        </div>
+          </div>
+          <div class="row ">
+            <div class="col-sm-4">
+              <label>Listening</label>      
+              <select [(ngModel)]="item[0].Listening" name="Listening" formControlName="Listening">
+                <option *ngFor="let item of list">{{item}}</option>
+        
+              </select>
+            </div>
+          <div class="col-sm-4">
+            <label>Reading</label>
+            <select [(ngModel)]="item[0].Reading" name="Reading" formControlName="Reading">
+              <option *ngFor="let item of Read">{{item}}</option>
+                 </select>
+          </div>  
+              </div>
+              <div class="row ">
+                <div class="col-sm-4">
+                  <label>Speaking</label>
+                  <select [(ngModel)]="item[0].Speaking" name="Speaking" formControlName="Speaking">
+                    <option *ngFor="let item of sprek">{{item}}</option>
+                      </select>
+                </div>
+                <div class="col-sm-4">
+                  <label>Writing</label>
+                  <select [(ngModel)]="item[0].Writing" name={{Write}}  formControlName="Writing">
+          
+                    <option *ngFor="let item of Write">{{item}}</option>
+                  </select>
+                </div>
+                  </div>      
+
+
+     
      <div>
        <div class="form-group" formArrayName="Skills">
          <label>skills</label>
@@ -194,7 +178,9 @@
       <p>
         <button type="submit">Submit</button>
       </p>
-     
+     <p>
+       <button type="button" routerLink="/full-resume">Final Submit</button>
+     </p>
     </form>
 
     <!-- <div formArrayName="skills">

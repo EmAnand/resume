@@ -17,6 +17,9 @@ export const data = {
             "Microsoft Teams"
           ]
         },
+                    
+                
+          
         "#ONLINE-SHOWCASE": {
           "Data": [
             "Communication and interersonal skills",
@@ -60,6 +63,15 @@ export const data = {
             "+ 1-345 Cayman Islands",
             "+ 91 india",
             "+92 Pakistan"
+          ]
+        },
+        "CodeList": {
+          "Data": [
+            "+ 1-345",
+            "+ 91 ",
+            "+92 ",
+            "+1",
+            "+44",
           ]
         },
         "Diploma": {

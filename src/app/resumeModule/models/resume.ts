@@ -28,7 +28,7 @@ export interface iPersonalInfo{
 }
 
 export interface iQualification{
-	Study:string | null,
+	Study:string |null,
 	StudyTitle:string | null,
 	InstitutionUrl:string | null,
 	InstitutionName:string | null,

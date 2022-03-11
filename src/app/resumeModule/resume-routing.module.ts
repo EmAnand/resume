@@ -20,8 +20,8 @@ import { QualificationComponent } from './qualification/qualification.component'
 const routes: Routes = [
   {path:'new-cover-letter',component:NewCoverLetterComponent},
   {path:'my-cover-letters',component:MyCoverLetterComponent},
-  {path:'full-resume',component:FullResumeComponent},
-  {path:'my-resumes',component:MyResumeComponent},
+  {path:'full-resume',  component:FullResumeComponent},
+  {path:'my-resumes',  component:MyResumeComponent},
   {path:'my-blogs',component:MyBlogsComponent},
   {path:'my-certificates',component:MyCertificatesComponent},
   {path:'my-tests',component:MyTestsComponent},
