@@ -2,16 +2,7 @@ input.ng-invalid.ng-touched{
 
     border: 1px solid red;
 }
-.row{
-    margin-right: 10px;
-}
-.col-sm-2{
-    padding: 3px;
-   
-}
-.col-sm-6{
-    padding-top: 5px;
-}
-/* .chk{
 
-} */
+.ckd{
+    font-weight: bolder;
+}

@@ -103,9 +103,11 @@
         
           <div class="row">
         <div class="col-sm-6">
-          <a routerLink="/new-resume/experience">Back</a>
+          <a routerLink="/new-resume/experience" class="mu-post-btn">Back</a>
           </div>
-        
+          <div class="col-sm-6">
+            <a routerLink="/full-resume" class="mu-post-btn">GoTo Resume</a>
+            </div>
         
         
       </div>
@@ -117,7 +119,7 @@
 
   
   <ng-template #editTemp >
-   
+    <p class=" h4" style="margin-right: 50px;" >LANGUAGE</p>
 
     <form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
 

@@ -12,7 +12,7 @@
                  <div  *ngIf="!edit;else editTemp">
                   <div class="row border1">
                     <div class="col-sm-8">
-                  <p class=" h4" style="margin-right: 50px;" >EXPERIENCE
+                  <p class=" h4" style="margin-right: 50px;">EXPERIENCE
                   <span style="float: right">
                     <a >
                       <i class="fa fa-edit" (click)="editform()"style="font-size:32px;color:green"></i>
@@ -22,9 +22,9 @@
                   </p>
                 </div>
                 </div>
-                  
+                  <br>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2" style="font-weight: bolder;">
               Position:
             </div>
           <div class="col-sm-2">
@@ -32,7 +32,7 @@
           </div>
           <!-- </div> -->
           <!-- <div class="row"> -->
-            <div class="col-sm-2">
+            <div class="col-sm-2" style="font-weight: bolder;">
               Responsibilities:
             </div>
           <div class="col-sm-2">
@@ -40,7 +40,7 @@
           </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2" style="font-weight: bolder;">
               Province:
             </div>
           <div class="col-sm-2">
@@ -48,7 +48,7 @@
           </div>
           <!-- </div> -->
           <!-- <div class="row"> -->
-              <div class="col-sm-2">
+              <div class="col-sm-2" style="font-weight: bolder;">
                 City:
               </div>
             <div class="col-sm-2">
@@ -57,7 +57,7 @@
             </div>
         
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2" style="font-weight: bolder;">
               Country:
             </div>
           <div class="col-sm-2">
@@ -66,7 +66,7 @@
           <!-- </div> -->
      
             <!-- <div class="row"> -->
-              <div class="col-sm-2">
+              <div class="col-sm-2" style="font-weight: bolder;">
                 ZipCode:
               </div>
             <div class="col-sm-2">
@@ -77,25 +77,26 @@
                
                 
                 <div class="row">
-                  <div class="col-sm-2">
+                  <div class="col-sm-2" style="font-weight: bolder;">
                     OrganizationUrl:
                   </div>
-                <div class="col-sm-2">
+                <div class="col-sm-8">
                 {{experi.OrganizationUrl}}
+                </div>
                 </div>
                 <!-- </div>  -->
                   
-                  <!-- <div class="row"> -->
-                    <div class="col-sm-2">
+                  <div class="row">
+                    <div class="col-sm-2" style="font-weight: bolder;">
                       OrganizationName:
                     </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-8">
                   {{experi.OrganizationName}}
                   </div>
                   </div> 
                     
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-2" style="font-weight: bolder;">
                         ExperienceFrom:
                       </div>
                     <div class="col-sm-2">
@@ -104,7 +105,7 @@
                     <!-- </div>  -->
                       
                       <!-- <div class="row"> -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="font-weight: bolder;">
                           ExperienceTo:
                         </div>
                       <div class="col-sm-2">
@@ -112,15 +113,15 @@
                       </div>
                       </div> 
                         
-                        
+                  <br><br>      
                         <div class="row">
                    
   
                           <div class="col-sm-4">
-                              <a routerLink="/new-resume/qualification" class="back">Back</a>
+                              <a  routerLink="/new-resume/qualification" class="mu-post-btn">Back</a>
                               </div>
                           <div class="col-sm-4">
-                              <a routerLink="/new-resume/language" class="next">Next</a>
+                              <a routerLink="/new-resume/language" class="mu-post-btn">Next</a>
                               </div>
                               
                             </div>
@@ -132,6 +133,8 @@
     </div>
 </div>
 <ng-template #editTemp>
+  <p class=" h4" style="margin-right: 50px;">EXPERIENCE</p>
+  <br>
   <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
     <div class="row form-group">
       <div class="col-sm-4">
