@@ -6,3 +6,9 @@ input.ng-invalid.ng-touched{
 .ckd{
     font-weight: bolder;
 }
+.row{
+    margin-right: 10px;
+}
+.col-sm-2{
+    margin: 5px;
+}

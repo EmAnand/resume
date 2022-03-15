@@ -9,24 +9,25 @@ export class ResumeService {
 
   constructor(private http:HttpClient) { }
 
-  GetPersonalInfo(userId:string,resumeId:string){
+  GetPersonalInfo(userId:string,resumeId:string):iPersonalInfo{
     return  {
       "AboutMe": "My name is Vikash kumar. I have complete B.tech in Computer Science",
       "AlternateEmail": "vikash@gmail.com",
       "AlternatePhoneNo": "1234567891",
       "City": "muzaffarpur",
       "CurrentCountry": "Indian",
-      "DOB": "28/02/1995",
+      "DOB": new Date(),
       "DisplayName": "Vikash kumar",
       "Email": "vikas4@gmail.com",
       "Gender": "Male",
       "Hobbies": "Watching a Movie",
       "Nationality": "Indian",
-      "code": +91,
-      "PhoneNO": 7533082342,
+      "CountryCode": '+91',
+      "PhoneNO": '7533082342',
       "Province": "Muzaffarpur",
       "SummaryText": "Hello Eeveryone!",
-      "ZipCode": 842002
+      "ZipCode": '842002',
+      "ImgUrl": null
           
     }
   };

@@ -8,6 +8,8 @@ import { CheckPasswordDirective } from './login/validaters/passwordValidators.Di
 import { CheckcontactDirective } from './login/validaters/ContactnoValidator.Directive ';
 import { CheckloginNameDirective } from './login/validaters/loginNameValidator.Directive';
 import { TermconditionComponent } from './termcondition/termcondition.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 
 
@@ -22,6 +24,7 @@ import { TermconditionComponent } from './termcondition/termcondition.component'
     CheckcontactDirective,
     CheckloginNameDirective,
     TermconditionComponent,
+    ProfileComponent,
     
 
 
@@ -29,6 +32,7 @@ import { TermconditionComponent } from './termcondition/termcondition.component'
   imports: [
     CommonModule,
     FormsModule,
+    SharedModuleModule
   ]
 })
 export class LoginModule { }

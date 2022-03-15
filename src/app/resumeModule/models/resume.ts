@@ -12,6 +12,7 @@ export interface iPersonalInfo{
 	DisplayName:string | null,
 	SummaryText:string | null,
 	AboutMe:string | null,
+	CountryCode: string | null,
 	DOB:Date ,
 	Gender:string | null ,
 	Nationality:string | null ,

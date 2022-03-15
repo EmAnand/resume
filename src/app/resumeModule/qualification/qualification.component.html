@@ -24,7 +24,7 @@
   
                         <div class="row ">
                           <div class="col-sm-2 ckd">
-                            Study*
+                            Study
                           </div>
                           <div class="col-sm-2">
                             {{ab.Study}}
@@ -41,7 +41,7 @@
                         </div>
                         <div class="row ">
                           <div class="col-sm-2 ckd">
-                            InstitutionUrl*
+                            InstitutionUrl
                           </div>
                           <div class="col-sm-8">
                             {{ab.InstitutionUrl}}
@@ -50,7 +50,7 @@
                         <!-- </div> -->
                         <div class="row">
                           <div class="col-sm-2 ckd">
-                            InstitutionName*
+                            InstitutionName
                           </div>
                           <div class="col-sm-8">
                             {{ab.InstitutionName}}
@@ -58,7 +58,7 @@
                         </div>
                         <div class="row ">
                           <div class="col-sm-2 ckd">
-                            City*
+                            City
                           </div>
                           <div class="col-sm-2">
                             {{ab.City}}
@@ -66,7 +66,7 @@
                         <!-- </div> -->
                         <!-- <div class="row"> -->
                           <div class="col-sm-2 ckd">
-                            ZipCode*
+                            ZipCode
                           </div>
                           <div class="col-sm-2">
                             {{ab.ZipCode}}
@@ -74,7 +74,7 @@
                         </div>
                         <div class="row">
                           <div class="col-sm-2 ckd">
-                            StudyFrom*
+                            StudyFrom
                           </div>
                           <div class="col-sm-2">
                             {{ab.StudyFrom}}
@@ -82,7 +82,7 @@
                         <!-- </div> -->
                         <!-- <div class="row"> -->
                           <div class="col-sm-2 ckd">
-                            StudyTo*
+                            StudyTo
                           </div>
                           <div class="col-sm-2">
                             {{ab.StudyTo}}
@@ -90,7 +90,7 @@
                         </div>
                         <div class="row">
                           <div class="col-sm-2 ckd">
-                            Stream*
+                            Stream
                           </div>
                           <div class="col-sm-2">
                             {{ab.Stream}}
@@ -98,7 +98,7 @@
                         <!-- </div> -->
                         <!-- <div class="row"> -->
                           <div class="col-sm-2 ckd">
-                            Country*
+                            Country
                           </div>
                           <div class="col-sm-2">
                             {{ab.Country}}
@@ -106,7 +106,7 @@
                         </div>
                         <div class="row">
                           <div class="col-sm-2 ckd">
-                            StillOn*
+                            StillOn
                           </div>
                           <div class="col-sm-2">
                             {{ab.StillOn}}
@@ -114,7 +114,7 @@
                         <!-- </div> -->
                         <!-- <div class="row"> -->
                           <div class="col-sm-2 ckd">
-                            HideFromCV*
+                            HideFromCV
                           </div>
                           <div class="col-sm-2">
                             {{ab.HideFromCV}}
@@ -123,7 +123,8 @@
   <br><br>
                       <div class="row  ">
                         <div class="col-sm-2">
-                          <a style="float: right;" routerLink="/new-resume/personal-info" class="mu-post-btn">Back            
+                          <a style="float: right;" routerLink="/new-resume/personal-info" 
+                          class="mu-post-btn">Back            
                         </a>
                           
                       </div>
@@ -144,9 +145,9 @@
           <br>
           <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
             
-             <div class="row  ">
+             <div class="row ">
              <div class="col-sm-4 form-group">
-              <label>Study*</label>
+              <label>Study</label>
                <input type="text" [(ngModel)]="ab.Study" required name="Study" 
                #Study="ngModel" class="form-control"
                placeholder="Study"> 
@@ -172,11 +173,11 @@
            </div>
            <div class="row  form-group">
              <div class="col-sm-4 ">
-              <label>StudyFrom*</label>
+              <label>StudyFrom</label>
               <input type="date" [(ngModel)]="ab.StudyFrom" required name="StudyFrom" #StudyFrom="ngModel" class="form-control" placeholder="StudyFrom">
              </div>
              <div class="col-sm-4 form-group">
-              <label>StudyTo*</label>          
+              <label>StudyTo</label>          
               <input type="date" [(ngModel)]="ab.StudyTo" required name="StudyTo" #StudyTo="ngModel" class="form-control" placeholder="StudyTo" required>
               
              </div>
@@ -244,7 +245,7 @@
                                     <!-- </div></div>  -->
                                                                         
                 <p class="form-submit">
-              <input type="submit" class="mu-post-btn" >
+              <input type="submit"  value="Save" class="mu-post-btn" >
               <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->
             </p>
           </form>
