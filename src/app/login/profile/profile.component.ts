@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NgForm } from '@angular/forms';
 
 import { NotificationsService } from 'angular2-notifications';
-// import { error } from 'console';
+import { error } from 'console';
 import { finalize } from 'rxjs';
 import { data } from 'src/app/shared-module/dimensionData';
 import { environment } from 'src/environments/environment';
@@ -23,7 +23,7 @@ item: any | null;
 items: any | null =data.DimensionData.CodeList.Data
 
   constructor(private login:LoginService, 
-    // private storage: AngularFireStorage,
+    private storage: AngularFireStorage,
     private notificationService:NotificationsService) { 
       this.item=this.login.GetProfile('userId', 'resumeId');
       console.log('this.item' )
@@ -32,10 +32,10 @@ items: any | null =data.DimensionData.CodeList.Data
     }
 
   ngOnInit(): void {
-    // this.user=this.login.user
-    // if(this.user.photoURL.length<10){
-    //   this.user.photoURL=environment.FakeUserImage;
-    // }
+    this.user=this.login.user
+    if(this.user.photoURL.length<10){
+      this.user.photoURL=environment.FakeUserImage;
+    }
   }
   file:any;
   SaveFiles(event:any){
@@ -46,12 +46,12 @@ items: any | null =data.DimensionData.CodeList.Data
 
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-        //this.message = "Only images are supported.";
+        this.message = "Only images are supported.";
         return;
     }
 
     const reader = new FileReader();
-    //this.imagePath = files;
+    this.imagePath = files;
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
       this.image = reader.result?.toString(); 
@@ -69,46 +69,46 @@ items: any | null =data.DimensionData.CodeList.Data
     if(f.valid){
       this.login.SetProfile(f, 'userId');
     }
-    // if (f.valid) {
-    //   // if (f.valid && !!f.value.files) {
-    //   if(this.image){
-    //   var downloadURL:any;
-    //   const filePath = 'UserImage/'+this.user.uid;
-    //   const fileRef = this.storage.ref(filePath);
-    //   const task = this.storage.upload(filePath, this.file);
-    //   task.snapshotChanges().pipe(
-    //     () => downloadURL = fileRef.getDownloadURL())
-    //     .subscribe(val=>{
-    //       this.uploadImage(f.value.name,val)
-    //   })
-    //  }
-    //  else{
-    //   this.uploadImage(f.value.name,null)
-    //  }
-    // }
+    if (f.valid) {
+      if (f.valid && !!f.value.files) {
+      if(this.image){
+      var downloadURL:any;
+      const filePath = 'UserImage/'+this.user.uid;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, this.file);
+      task.snapshotChanges().pipe(
+        () => downloadURL = fileRef.getDownloadURL())
+        .subscribe(val=>{
+          this.uploadImage(f.value.name,val)
+      })
+     }
+     else{
+      this.uploadImage(f.value.name,null)
+     }
+    }
   }
 
   uploadImage(name:string|null,url:string|null){
-  //   this.login.updateUserInfo(name,url).then((val:any)=>{
-  //     this.notificationService.success('Success', 'Detail has been updated successfully',{
-  //       timeOut: 5000,
-  //       showProgressBar: true,
-  //       pauseOnHover: false,
-  //       clickToClose: false,
-  //       maxLength: 10
-  //     });
-  //     this.edit=false;
-  //     },
-  //     error=>{
-  //       this.notificationService.error('Failed', 'Some error has been occured!',{
-  //         timeOut: 5000,
-  //         showProgressBar: true,
-  //         pauseOnHover: false,
-  //         clickToClose: false,
-  //         maxLength: 10
-  //       });
-  //     }
-  // )
+    this.login.updateUserInfo(name,url).then((val:any)=>{
+      this.notificationService.success('Success', 'Detail has been updated successfully',{
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: false,
+        clickToClose: false,
+        maxLength: 10
+      });
+      this.edit=false;
+      },
+      error=>{
+        this.notificationService.error('Failed', 'Some error has been occured!',{
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: false,
+          clickToClose: false,
+          maxLength: 10
+        });
+      }
+  )
   }
   editform(){
     this.editOther=true;
